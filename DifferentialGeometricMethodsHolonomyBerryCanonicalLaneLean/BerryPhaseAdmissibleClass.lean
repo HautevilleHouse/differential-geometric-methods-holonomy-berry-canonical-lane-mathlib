@@ -1,0 +1,26 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean.BerryConnectionBundle
+import DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean.ParallelTransportHolonomy
+import DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean.CurvatureInvariant
+import DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean.IndexTheoremApplication
+
+namespace HautevilleHouse
+namespace DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean
+
+structure BerryAdmittedObject where
+  bundle : BerryConnectionBundle
+  holonomy : ParallelTransportHolonomyPackage bundle
+  curvatureInvariant : CurvatureInvariantPackage bundle
+  indexApplication : IndexTheoremApplicationPackage bundle curvatureInvariant holonomy
+  berryPhaseDefined : Prop
+  geometricPhaseClosed : Prop
+  conclusion : geometricPhaseClosed
+
+structure BerryAdmissibleClass where
+  object : BerryAdmittedObject
+  endpointSatisfied : Prop
+  remainderRecorded : Prop
+  gateWitness : endpointSatisfied ∨ remainderRecorded
+
+end DifferentialGeometricMethodsHolonomyBerryCanonicalLaneLean
+end HautevilleHouse
